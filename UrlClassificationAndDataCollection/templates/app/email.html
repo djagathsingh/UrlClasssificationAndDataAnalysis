@@ -1,0 +1,50 @@
+{% extends 'app/base.html' %}
+{% block body_block %}
+{% load static %}
+{% if user.is_authenticated %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Common email spams:</h1>
+      <h3>1. Foreign Lottery Scam</h3>
+      <p>The foreign lottery scam is one of the most common types of email scams, in which you receive what looks like an official email from a foreign lottery corporation. The subject line offers a congratulatory announcement, and may include the supposed amount of money you’ve “won.”</p><br>
+      <p>Here are the sure signs your winnings are false:</p><br>
+      <p><b>The Sender Is a Person.</b> If the sender is an individual – or is, at least, obviously not an official lottery email – then you know you’ve got a scam on your hands. For example, mikesmith1453@earthlink.com certainly is not going to be the guy to tell you that you’ve won several million dollars.</p><br>
+      <p><b>Your Name Is Not in the “To” Field.</b> If your name is not in the “To” section of the email, then this phishing email has likely been sent to thousands of people, all in the hopes of snagging a few bites.</p><br>
+      <p><b>The Lottery Doesn’t Exist.</b> Do a simple Google search. Does the lottery even exist? You may find that not only is the lottery fake, but that it’s a well-documented scam.</p><br>
+      <p><b>Request for Information.</b> Scammer emails routinely request your full name, date of birth, street address, and telephone number. This is known as a phishing scam, which is designed to get you to reveal sensitive personal information. Once you respond with this information, you’ve been hooked, and may ultimately end up with a stolen identity or, even worse, a drained bank account.</p><br>
+      <p>The best way to avoid the common email scam is to realize this one simple rule: If you did not enter the lottery, you will not win the lottery. And even if you do enter the lottery, you probably will not win.</p><br>
+      <h3>2. Survey Scam</h3>
+      <p> This common email scam looks innocent enough. You’ve expressed interest in social issues, such as global warming or the war in the Middle East, and you’ve been sent a survey that requests your input. Why not participate? Unless you’ve specifically requested to be on a survey mailing list, what you’re getting is nothing but spam.</p><br>
+      <p>When you click on the link to take the survey, malicious spyware or malware is installed on your computer. Once this occurs, cybercriminals can spy on every move you make on your computer, collecting passwords, bank account information, and more. Suddenly, you may see thousands of dollars worth of charges on your credit card bill for purchases you never made. This is result of identity theft, and it can ruin your life. </p><br>
+      <h3>3. PayPal or Online Credit Card/Banking Scam</h3>
+      <p>This one got me several years ago, and it was incredibly irritating. At first, you may really believe there’s something wrong with your PayPal account, as you will receive an email that appears to be from PayPal with a warning message such as, “Act now, or your account will be deactivated,” or “Security breach on your account.” This can cause you to panic, open the email, click the link, and log in to your account.</p><br>
+      <p>The problem is that you’re not really on PayPal’s website, but rather a false website designed to look identical to PayPal. You’ve just given your email address and password to your actual PayPal account to a cybercriminal, who can now use that information to change your password and clean you out. They may even use this information to scam your friends and business associates.</p><br>
+      <p>Here are some surefire ways to tell if an email supposedly from PayPal is nothing but a scam:</p><br>
+      <p><b>The Sender’s Email Address Is Suspicious.</b> Just because the sender’s name is “PayPal Security Center” does not make it legitimate. An address such as “security-paypal-center@int.paypal.uk.org” is a dead giveaway that you’re being taken for a ride. PayPal only sends emails from addresses that end in “@paypal.com.”</p><br>
+      <p><b>They Don’t Know Who You Are.</b> Whether it’s PayPal or your credit card company, if you do business with them, they know your name and will use every opportunity to use it. Any correspondence beginning with “Dear valued customer” is a scam.</p><br>
+      <p><b>The Linked URL Is Not Legitimate.</b> Hover your mouse over the “click here” or “take action now” link, and if you see a strange URL that does not take you to PayPal.com, don’t click.</p><br>
+      <p><b>The Email Includes a Threat.</b> This is how they got me. I was told that there was a security breach on my account, and if I didn’t take the actions recommended in the email, my account would be temporarily suspended. I clicked on the link and input my email address, password, and account information. Thankfully, shortly thereafter, I was tipped off and was able to call and cancel my account.</p><br>
+      <p>Remember, no legitimate company will ever threaten to close your account if you ignore an email.</p><br>
+      <h3>4. Mystery Shopper Scam</h3><br>
+      <p>The secret shopper (or mystery shopper) scam has several different variations, but all are designed to steal your money, your information, or both. This common work-from-home scam attempts to suck you in with an email featuring a subject line promising you a large income, simply by working as a mystery shopper. You need no experience or education, and you can make up to $200 to $300 a day doing just what you love: shopping! Sounds too good to be true, right?</p><br>
+      <p>It is indeed. Instead of being paid to shop, here are the two ways in which you can be swindled:</p><br>
+      <p><b>You Have to Pay Upfront.</b> The money looks good, but in order to get your “training materials,” you must send the company money via PayPal or with a personal check. You send the money and wait for a package that never arrives.</p><br>
+      <p><b>You Receive a Fraudulent Check.</b> This one is even worse. You provide the false company your address, and are sent a fraudulent check in the mail as your first payment. However, you are requested to send some of the money back to cover your study materials. You cash the check, wire the requested amount of money, and then discover that the check you deposited has bounced. You’re responsible for $1,000 or more worth of fraudulent check charges, plus overdraft fees.</p><br>
+      <p>If you didn’t apply for a job, you won’t be offered a job. They don’t just fall out of the sky. Furthermore, if you’re ever asked to spend money upfront for materials, you are likely being scammed.</p><br>
+      <h3>5. Nigerian Check Scam</h3><br>
+      <p>Another one of the more common email scams is the Nigerian check scam. If you are subject to this scam, you receive an email from an a royal-sounding person with the name of “Sir Arthur Von-Monsoon,” or “Barrister Frank N. Stein” with a request to help recover large sums of money from an overseas bank. As a reward, you’ll receive a handsome cut of the cash. Nice, huh?</p><br>
+      <p>Unfortunately, there’s always a catch. It seems like a win-win situation, so you respond with your willingness to help. You are told the money will be transferred to your bank account; therefore, you must provide your bank account information. Also, there are transfer fees involved, and you have to pay those as well. Once you pay a couple hundred dollars, waiting for your huge windfall, you receive another email stating there has been some type of holdup, and you must send a bit more cash.</p><br>
+      <p>This continues until you, the unsuspecting victim, realize that money is only going one way: out of your bank account.</p><br>
+      <h1>Avoid scams:</h1>
+      <p>Whether it’s an email scam or a social networking scam, there are some dead giveaways when it comes to recognizing them before they get you. Here are five ways to avoid common scams:</p>
+      <ol>
+        <li>Delete Unsolicited Emails. One of the best ways to avoid email scams is to delete unsolicited emails. Legitimate companies will never send you pertinent information by email.</li><br>
+        <li>Don’t Believe Promises of Money or Prizes. Any email or social networking link that promises free money or prizes should be dismissed, as these are almost always scams.</li><br>
+        <li>Question Requests for Donations. Whenever there’s a national disaster, con artists have a field day sending bogus requests for donations. Instead of donating through email to an unknown charity, give to legitimate charities, such as the Red Cross.</li><br>
+        <li>Never Disclose Sensitive Personal Information. Any person who sends you an email asking for sensitive information, such as your bank account number or Social Security number, is up to no good. No matter what they promise you, mark the email as spam and move on.</li><br>
+        <li>Hover Before You Click. Whenever you receive an unsolicited email asking you to “click here,” beware – even if it sounds like a legitimate company. The same goes for social networking links that take you to what appear to be login pages. These may be, in fact, sites designed to steal your information.</li><br>
+      </ol>
+    </div>
+  </div>
+{% endif %}
+{% endblock %}

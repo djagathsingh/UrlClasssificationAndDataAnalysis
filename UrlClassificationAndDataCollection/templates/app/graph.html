@@ -1,0 +1,54 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron">
+        <h1>Chose graph</h1>
+        <p>Use search to get visualizations of visits in terms of:</p>
+        <ul>
+          <li>Country</li>
+          <li>Gender</li>
+          <li>Occupation</li>
+          <li>Age</li>
+        </ul>
+        <p>(List in the above order.)</p>
+        <form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ graph_form.as_ul }}
+          <input type="submit" name="" value="See graph!">
+        </form>
+        {% if posted %}
+        <div id="container" style="width: 75%;">
+          <canvas id="pie-chart"></canvas>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+         <script>
+
+           var config = {
+             type: 'pie',
+             data: {
+               datasets: [{
+                 data: {{ data|safe }},
+                 backgroundColor: [
+                   '#696969', '#808080', '#A9A9A9', '#C0C0C0', '#D3D3D3'
+                 ],
+                 label: 'Population'
+               }],
+               labels: {{ labels|safe }}
+             },
+             options: {
+               responsive: true
+             }
+           };
+
+           window.onload = function() {
+             var ctx = document.getElementById('pie-chart').getContext('2d');
+             window.myPie = new Chart(ctx, config);
+           };
+
+         </script>
+
+        {% endif %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %}
+{% block body_block %}
+{% load static %}
+{% if user.is_authenticated %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Enter URL:</h1>
+        <form method="post" action="{% url 'app:safe' %}">
+          {% csrf_token %}
+          <label for="url">URL:</label>
+          <input type="text" name="url" placeholder="url" required>
+          <input type="submit" name="" value="CHECK NOW!">
+        </form>
+    </div>
+  </div>
+<div class="container">
+  {% if post %}
+      {% if valid %}
+            {% if safe and caution%}
+              <p>Entered URL looks safe, but proceed with caution..</p>
+            {% elif safe %}
+              <p>Entered URL is safe, proceed.</p>
+            {% else %}
+            {% endif %}
+            {% if not safe and not caution %}
+              <p>Entered URL is not safe, but many users reported it to be safe, Please wait for admin to approve safety.</p>
+            {% elif not safe %}
+              <p>Aw! URL is not safe.. Better not go there..</p>
+            {% else %}
+            {% endif %}
+      {% else %}
+        <p>URL entered is invalid..Please enter a valid URL</p>
+      {% endif %}
+  {% endif %}
+
+{% else %}
+  <h1>Please login<h1>
+{% endif %}
+</div>
+
+{% endblock %}

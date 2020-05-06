@@ -1,0 +1,86 @@
+{% extends 'app/base.html' %}
+{% block body_block %}
+{% load static %}
+{% if user.is_authenticated %}
+  <div class="jumbotron">
+    <div class="text-centre">
+      <b><h1>Tampermonkey</h1></b>
+    </div>
+  </div>
+  <p>Tampermonkey is the most popular userscript manager, with over 10 million users. It's available for Chrome, Microsoft Edge, Safari, Opera Next, and Firefox.</p>
+  <p>A userscript manager allows us to track all of your URL clicks, so it is necessary for your safety.</p>
+  <p>Use the below link to get detailed information on how to install Tampermonkey</p>
+  <b><a href="https://www.tampermonkey.net/?gclid=CjwKCAjw7e_0BRB7EiwAlH-goP0B9ExloxdoEj5v3-KDXh0MwdHzJYIt61ZjronHC38RxGfZua3TPhoCrX0QAvD_BwE">How to Install Tampermonkey</a></b>
+  <p>After you are done, create a new userscript and paste the following code:<br>
+    // ==UserScript==
+// @name         Return href of clicks <br>
+// @namespace    http://tampermonkey.net/ <br>
+// @version      0.1 <br>
+// @description  try to take over the world! <br>
+// @author       Jagath <br>
+// @match        https://www.tampermonkey.net/faq.php?version=4.9&ext=dhdg&updated=true <br>
+// @require      https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js <br>
+// @require      http://userscripts-mirror.org/scripts/source/107941.user.js <br>
+// @require      http://code.jquery.com/jquery-1.7.1.min.js <br>
+// @include      * <br>
+// @grant        GM_getValue <br>
+// @grant        GM_setValue <br>
+// @grant        GM_xmlhttpRequest <br>
+// ==/UserScript== <br>
+/* globals jQuery, $, waitForKeyElements */ <br>
+
+var $ = window.jQuery;<br>
+
+var getParentAnchor = function (element) { <br>
+  while (element !== null) { <br>
+    if (element.tagName.toUpperCase() === "A") { <br>
+      return element; <br>
+    } <br>
+    element = element.parentNode; <br>
+  } <br>
+  return null; <br>
+}; <br>
+
+document.querySelector("body").addEventListener('click', function(e) { <br>
+  var anchor = getParentAnchor(e.target); <br>
+  var xml,parser,xmlDoc; <br>
+  if(anchor !== null && anchor.href!='javascript:void(0);') { <br>
+  var req = GM_xmlhttpRequest({ <br>
+  method: "POST", <br>
+  url: "http://127.0.0.1:8000/url.xml/", <br>
+  data: "url="+anchor.href+"&safe=no", <br>
+  synchronous: true, <br>
+  headers: { <br>
+    "Content-Type": "application/x-www-form-urlencoded" <br>
+  }, <br>
+    onload: function(response) { <br>
+    xml = response.responseText; <br>
+    console.log(xml) <br>
+    parser = new DOMParser(); <br>
+    xmlDoc = parser.parseFromString(xml,"text/xml"); <br>
+    var safeget = xmlDoc.getElementsByTagName("safe")[0].childNodes[0].nodeValue; <br>
+    var urlget = xmlDoc.getElementsByTagName("url")[0].childNodes[0].nodeValue; <br>
+     console.log(safeget); <br>
+   if(safeget == 'yes'){ <br>
+        window.location = urlget; <br>
+    } <br>
+    else if(safeget == 'yescaution'){ <br>
+        alert('This URL has been reported by many users. Proceed with caution..'); <br>
+        setTimeout(function(){ window.location = urlget }, 3000); <br>
+    } <br>
+    else if(safeget == 'caution' ){ <br>
+          if(window.confirm("URL is suspicious. Continue?")){ <br>
+               window.location = urlget; <br>
+          } <br>
+    } <br>
+    } <br>
+  }); <br>
+    e.preventDefault(); <br>
+  } <br>
+
+}, false); <br>
+</p>
+<p>And make sure you are logged in here, and voila! you are protected from malicious URL's</p>
+
+{% endif %}
+{% endblock %}

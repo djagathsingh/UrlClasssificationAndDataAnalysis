@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+{% block body_block %}
+{% load static %}
+{% if user.is_authenticated %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Enter feedback:</h1>
+        <form method="post" action="{% url 'app:feedback' %}">
+          {% csrf_token %}
+          <label for="feedback">Feedback</label>
+          <textarea name="feedback" placeholder="Feedback here..." style="height:200px width:200px"  required></textarea>
+          <input type="submit" name="" value="Submit">
+        </form>
+        {% if feeded %}
+          <p>Thank you for your valuabe feedback.</p>
+        {% endif %}
+    </div>
+  </div>
+{% endif %}
+{% endblock %}

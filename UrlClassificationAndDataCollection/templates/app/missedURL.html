@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+{% block body_block %}
+{% load static %}
+{% if user.is_authenticated %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Did we classify a URL wrongly?</h1>
+        <form method="post" action="{% url 'app:missed' %}">
+          {% csrf_token %}
+          <label for="MalNotMal">Classified unsafe URL as safe</label>
+          <input type="text" name="MalNotMal" placeholder="URL here..Enter no for no url" size="50" required><br>
+
+          <label for="NotMalMal">Classified safe URL as unsafe</label>
+          <input type="text" name="NotMalMal" placeholder="URL here..Enter no for no url" size="50"  required><br>
+
+          <input type="submit" name="" value="Submit">
+        </form>
+        {% if valid1 and valid2 %}
+          {% if not mistake1 and no1 == 'yes' %}
+            <p>Thank you! We will look into this dangerous URL ASAP..</p>
+          {% elif mistake1 %}
+            <p>Pretty sure we never said that URL is not malicious</p>
+          {% endif %}
+          {% if not mistake2 and no2 == 'yes' %}
+            <p>Thank you. We will recheck safety of this URL ASAP.</p>
+          {% elif mistake2 %}
+            <p>Pretty sure we never said this URL is malicious..</p>
+          {% endif %}
+        {% elif not valid1 or not valid2 %}
+          <p>One of the URL's entered is invalid</p>
+        {% endif %}
+    </div>
+  </div>
+{% endif %}
+{% endblock %}

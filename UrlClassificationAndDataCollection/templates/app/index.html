@@ -1,0 +1,26 @@
+{% extends "app/base.html" %}
+{% block body_block %}
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Your security is our priority!!</h1>
+    {% if user.is_authenticated %}
+        <h2>Welcome {{ user.username }}!</h2>
+        <h4>What would you like to do today?</h4>
+        <ul class = 'list-group'>
+          <li class = 'list-group-item'><a href="{% url 'app:safe' %}">Is this URL safe?</a></li>
+          <li class="list-group-item"><a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en">DOWNLOAD TAMPERMONKEY</a></li>
+          <li class = 'list-group-item'><a href="{% url 'app:whatTampermonkey' %}">What is Tampermonkey and how to install it?</a></li>
+          <li class = 'list-group-item'><a href="{% url 'app:missed' %}">Did we miss some Dangerous URL?</a></li>
+          <li class = 'list-group-item'><a href="{% url 'app:feedback' %}">Feedback</a></li>
+          {% if user.is_superuser %}
+          <li class = 'list-group-item'><a href="{% url 'app:graph' %}">Visualizations</a></li>
+          {% endif %}
+        </ul>
+    {% else %}
+        <h2>Please login/register to continue with our awesome app!! ;)</h2>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

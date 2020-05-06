@@ -1,0 +1,43 @@
+{% extends 'app/base.html' %}
+{% block body_block %}
+{% load static %}
+{% if user.is_authenticated %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Social Networking scams</h1>
+      <p>Thanks to social networking sites, you can connect with friends, relatives, and even celebrities all over the world. The problem? You can also connect with a wide variety of cybercriminals who specialize in online hoaxes.</p>
+      <p>Here is a short list of the most common types of social networking scams:</p>
+      <h3> Hijacked Profile Scam</h3>
+      <p>Recently, a girl I’d gone to high school with suddenly sent me a message on Facebook that said, “Hey girl, if you get some time, will you give me a call?”</p>
+      <p>I was immediately suspicious. We’re nothing more than mere acquaintances, and we’ve never once spoken on the phone. Though I figured her Facebook account had been hacked, I messaged her back and told her I couldn’t make long-distance phone calls. She responded by saying she had this wonderful business opportunity for me to get in on, and sent me a couple of links.</p>
+      <p>At this point, I knew it was a scam. Her profile had obviously been hacked, but the scammer was attempting to be clever by using personal details in our conversation, such as where we went to school. I ended up deleting her from my friend’s list because I couldn’t get a hold of her to tell her she’d been hacked.</p>
+      <p>You should also be wary of requests for money from friends – especially because these hoaxes can seem very real. Say you have a friend who travels often and posts pictures and updates about his various exploits. Suddenly, he sends you an urgent message claiming to be stuck somewhere overseas and needs some money to get home. Before you send any, try to contact him another way. He could be the victim of a hacked account.</p>
+      <h3>Quiz Scam</h3>
+      <p>It may be in your best interests to delete all app requests, and never take social networking quizzes. Turns out those “Which Twilight Character Are You?” quizzes could end up costing you a monthly charge.</p>
+      <p>It starts out innocently enough: You see the quiz on your friend’s profile, click on it, and enter your cell phone number as instructed. The quiz pops up, you take it and find out you’re more an Alice than a Bella, and promptly post it on your profile for all of your friends to see and participate in.</p>
+      <p>When next month rolls around, you’re shocked to learn that a $9.95 fee has been added to your cell phone bill for some dubious “monthly service.” Remember that the quiz asked you for your cell phone number in order for you to take it? You were so anxious to get the results that you didn’t even stop to wonder why they wanted it. Now you know.</p>
+      <h3>Suspicious Photo Scam</h3>
+      <p>This is one of the most common ways online con artists obtain login information to hijack an account. One of your friends, whose account has been hacked, posts a link on your page with a message such as, “OMG! Is this a naked picture of you?”</p>
+      <p>This causes you to panic and you click the link, only to find yourself back at the Facebook login page. You figure it’s just one of Facebook’s many glitches and login again.</p>
+      <p>By doing this, you’ve just disclosed your Facebook (or Twitter) account login information. Now, some cybercriminal is out there using your profile to attempt to scam your friends.</p>
+      <p>If you see a suspicious link, simply delete it and send a message via email or text message to your friend to warn them they’ve been hacked.</p>
+      <h3>Hidden URL Scam</h3>
+      <p>As a regular Twitter user, I always use TinyURL.com to shorten my links. Plenty of legitimate businesspeople do this to get around Twitter’s character limit. However, when clicking links, it’s best to err on the side of caution.</p>
+      <p>When you receive a new follower on Twitter, check out their previous updates. Do they all look like spam? Do they follow thousands of people, yet have few followers of their own? Is their profile picture worthy of a Victoria Secret or Maxim catalog cover? If this is the case, beware. Clicking on their links could take you to a website where spyware or malware might be downloaded onto your computer without your knowledge.</p>
+      <h3>Sick Baby Scam</h3>
+      <p>This one is sick alright. The sick baby scam works like this: A “friend” posts a photograph of an ill baby or young child with a caption beneath it that reads, “Little Jimmy has cancer. Click this link to donate $1 to help him and his family. Every little bit counts!”</p>
+      <p>Your heart goes out to this helpless little baby, and you click on the link, whip out your bank card, and donate some money. What you don’t realize is that the money isn’t going to help some dying child – it’s going straight to the bank account of a con artist.</p>
+      <p>Also, remember that shares don’t equal donations. Often, instead of sending money to help the “sick baby,” you’re asked to share the photo with everyone you know because each share supposedly earns $0.05. However, Facebook, nor any social networking website, will donate money based on how many times something is shared. This is almost always an attempt to phish for personal information.</p>
+      <h1>Avoid scams:</h1>
+      <p>Whether it’s an email scam or a social networking scam, there are some dead giveaways when it comes to recognizing them before they get you. Here are five ways to avoid common scams:</p>
+      <ol>
+        <li>Delete Unsolicited Emails. One of the best ways to avoid email scams is to delete unsolicited emails. Legitimate companies will never send you pertinent information by email.</li><br>
+        <li>Don’t Believe Promises of Money or Prizes. Any email or social networking link that promises free money or prizes should be dismissed, as these are almost always scams.</li><br>
+        <li>Question Requests for Donations. Whenever there’s a national disaster, con artists have a field day sending bogus requests for donations. Instead of donating through email to an unknown charity, give to legitimate charities, such as the Red Cross.</li><br>
+        <li>Never Disclose Sensitive Personal Information. Any person who sends you an email asking for sensitive information, such as your bank account number or Social Security number, is up to no good. No matter what they promise you, mark the email as spam and move on.</li><br>
+        <li>Hover Before You Click. Whenever you receive an unsolicited email asking you to “click here,” beware – even if it sounds like a legitimate company. The same goes for social networking links that take you to what appear to be login pages. These may be, in fact, sites designed to steal your information.</li><br>
+      </ol>
+    </div>
+  </div>
+{% endif %}
+{% endblock %}
