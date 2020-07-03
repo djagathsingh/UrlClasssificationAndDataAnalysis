@@ -1,5 +1,4 @@
 # UrlClasssificationAndDataAnalysis
-# You are free to use this, for learning purposes only.
 A web app which tracks the URL clicks of user in a browser and ensures that website is benign, also collects the internet usage statistics of user.
 Requirements: mongodb, django, a few common python3 libraries, tampermonkey.
 Go to project folder,
